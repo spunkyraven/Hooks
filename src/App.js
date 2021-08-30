@@ -52,22 +52,24 @@ function App() {
     },
   ]);
 
+  const [search, setSearch] = useState("");
+
   let addMovie = (newmovie) => {
     setTabmovies([...tabmovies, newmovie]);
   };
 
-  let search = (titleSearch) => {
-    setTabmovies(
-      tabmovies.filter((el) => el.title.toLowerCase().includes(titleSearch))
-    );
-  };
+  // let search = (titleSearch) => {
+  // setTabmovies(
+  //    tabmovies.filter((el) => el.title.toLowerCase().includes(titleSearch))
+  //  );
+  // };
 
   return (
     <div>
       <Container>
-        <SerachTitle search={search} />
+        <SerachTitle setSearch={setSearch} />
 
-        <MovieList tabmovies={tabmovies} />
+        <MovieList tabmovies={tabmovies} abc={search} />
         <AddMovie addMovie={addMovie} />
       </Container>
     </div>
