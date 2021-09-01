@@ -8,7 +8,7 @@ function Cardd({ elcard }) {
       <Card.Body>
         <Card.Title>{elcard.title}</Card.Title>
         <Card.Text>{elcard.year} </Card.Text>
-        <StarRatingComponent starCount={7} value={elcard.rating} />
+        <StarRatingComponent starCount={5} value={elcard.rating} />
       </Card.Body>
     </Card>
   );

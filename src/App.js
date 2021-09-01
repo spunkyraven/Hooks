@@ -5,6 +5,7 @@ import "./App.css";
 import AddMovie from "./Componenet/AddMovie";
 import { Container } from "react-bootstrap";
 import SerachTitle from "./Componenet/SerachTitle";
+
 import SearchRating from "./Componenet/SearchRating";
 function App() {
   let [tabmovies, setTabmovies] = useState([
@@ -53,6 +54,7 @@ function App() {
   ]);
 
   const [search, setSearch] = useState("");
+  const [rate, setRate] = useState("");
 
   let addMovie = (newmovie) => {
     setTabmovies([...tabmovies, newmovie]);
@@ -62,8 +64,8 @@ function App() {
     <div>
       <Container>
         <SerachTitle setSearch={setSearch} />
-        <SearchRating searchByrating={SearchRating} />
-        <MovieList tabmovies={tabmovies} abc={search} />
+        <SearchRating rate={rate} setRate={setRate} />
+        <MovieList tabmovies={tabmovies} abc={search} rate={rate} />
         <AddMovie addMovie={addMovie} />
       </Container>
     </div>

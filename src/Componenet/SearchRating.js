@@ -1,22 +1,25 @@
-import React, { useState } from "react";
-import StarRatingComponent from "react-star-rating-component";
+import React from "react";
+import Rating from "@material-ui/lab/Rating";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
 
-function SearchRating({ searchByrating }) {
-  const [newRating, setnewRating] = useState("1");
-  let onStarClick = (nextValue) => {
-    setnewRating(nextValue);
-    searchByrating(nextValue);
-  };
+function SearchRating({ rate, setRate }) {
   return (
-    <div>
-      <StarRatingComponent
-        name="rate1"
-        starCount={6}
-        value={newRating}
-        onStarClick={onStarClick}
+    <Box
+      component="fieldset"
+      mb={3}
+      borderColor="transparent"
+      style={{ marginBottom: "0px" }}
+    >
+      <Typography component="legend"></Typography>
+      <Rating
+        name="simple-controlled"
+        value={rate}
+        onChange={(Event, newValue) => {
+          setRate(newValue);
+        }}
       />
-    </div>
+    </Box>
   );
 }
-
 export default SearchRating;
