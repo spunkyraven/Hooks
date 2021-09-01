@@ -14,6 +14,7 @@ body {
 	background-size: 400% 400%;
 	animation: gradient 5s ease infinite;
 	height: 100vh;
+	background-position: center;
 }
 
 @keyframes gradient {

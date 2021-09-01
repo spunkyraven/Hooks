@@ -7,6 +7,9 @@ import { Container } from "react-bootstrap";
 import SerachTitle from "./Componenet/SerachTitle";
 
 import SearchRating from "./Componenet/SearchRating";
+import Description from "./Description";
+import Switch from "react-bootstrap/esm/Switch";
+import { Route } from "react-router";
 function App() {
   let [tabmovies, setTabmovies] = useState([
     {
@@ -15,6 +18,7 @@ function App() {
         "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
       year: 1972,
       rating: 3,
+      trailer: "https://www.youtube.com/watch?v=UVCP4bKy9Iw",
     },
     {
       title: "Inception",
@@ -61,14 +65,20 @@ function App() {
   };
 
   return (
-    <div>
-      <Container>
-        <SerachTitle setSearch={setSearch} />
-        <SearchRating rate={rate} setRate={setRate} />
-        <MovieList tabmovies={tabmovies} abc={search} rate={rate} />
-        <AddMovie addMovie={addMovie} />
-      </Container>
-    </div>
+    <>
+      <SerachTitle setSearch={setSearch} />
+      <Switch>
+        <Route path="/description" component={Description} />
+        <Route exact path="/">
+          <Container>
+            <SearchRating rate={rate} setRate={setRate} />
+            <MovieList tabmovies={tabmovies} abc={search} rate={rate} />
+            <AddMovie addMovie={addMovie} />
+          </Container>
+        </Route>
+      </Switch>
+    </>
   );
 }
+
 export default App;
